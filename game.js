@@ -53,9 +53,11 @@ function handleAnswer(answerIndex) {
 
     if (answerIndex === question.correct) {
         updateScore(10);
+        clearCanvas();
         ctx.fillStyle = 'green';
         ctx.fillText('Resposta correta!', 50, 300);
     } else {
+        clearCanvas();
         ctx.fillStyle = 'red';
         ctx.fillText('Resposta errada!', 50, 300);
     }
@@ -87,3 +89,6 @@ window.addEventListener('keydown', (e) => {
         handleAnswer(parseInt(e.key) - 1);
     }
 });
+
+// Automatically start the quiz mode on page load
+window.onload = startQuizMode;
